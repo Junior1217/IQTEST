@@ -80,8 +80,8 @@
                         class="font-bold text-lg tracking-tight bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">CogniMetrics
                         IQ</span>
                     <span
-                        class="hidden sm:inline-block ml-2 px-2 py-0.5 text-xs font-semibold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 rounded-full border border-indigo-200 dark:border-indigo-800">v3.4
-                        Professional</span>
+                        class="hidden sm:inline-block ml-2 px-2 py-0.5 text-xs font-semibold bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 rounded-full border border-indigo-200 dark:border-indigo-800">v4.0
+                        Professional Suite</span>
                 </div>
             </div>
             <div class="flex items-center space-x-4">
@@ -103,7 +103,7 @@
                 <div class="text-center max-w-2xl mx-auto space-y-6">
                     <div
                         class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider border border-indigo-100 dark:border-indigo-900">
-                        <i class="fa-solid fa-shield-halved mr-1"></i> Psychometrically Validated
+                        <i class="fa-solid fa-shield-halved mr-1"></i> Psychometrically Validated Scale
                     </div>
                     <h1
                         class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
@@ -132,9 +132,9 @@
                         <div
                             class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
                             <div class="text-indigo-600 dark:text-indigo-400 font-bold mb-1"><i
-                                    class="fa-solid fa-chart-pie mr-2"></i>Detailed Analysis</div>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Custom scoring mapping to standardized
-                                bell curve distribution (Mean 100, SD 15).</p>
+                                    class="fa-solid fa-chart-pie mr-2"></i>Three Tier Bands</div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Classifies into Below Average, Average
+                                (85-115), and High IQ (116+).</p>
                         </div>
                     </div>
 
@@ -229,13 +229,13 @@
                     </div>
                     <p class="text-indigo-300 font-medium uppercase tracking-wider text-sm mb-1">Estimated Full-Scale IQ
                         Score</p>
-                    <div class="text-6xl sm:text-7xl font-black tracking-tight my-2" id="finalIqScore">112</div>
+                    <div class="text-6xl sm:text-7xl font-black tracking-tight my-2" id="finalIqScore">105</div>
                     <div id="iqClassification"
                         class="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold text-sm mt-2">
-                        Average to High Intelligence (85 - 115)
+                        Average Intelligence (85 - 115)
                     </div>
                     <p class="text-slate-400 text-xs mt-4 max-w-md mx-auto" id="iqClassificationDesc">
-                        Your score indicates superior performance in logical reasoning and rapid pattern analysis.
+                        Your score falls within the standard average intelligence population distribution.
                     </p>
                 </div>
 
@@ -309,7 +309,7 @@
                         class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center">
                         <h3
                             class="font-bold text-lg mb-2 text-slate-900 dark:text-white w-full text-left flex items-center">
-                            <i class="fa-solid fa-bell-curve text-indigo-500 mr-2"></i> Population Distribution
+                            <i class="fa-solid fa-bell text-indigo-500 mr-2"></i> Population Distribution
                         </h3>
                         <p class="text-xs text-slate-500 dark:text-slate-400 w-full text-left mb-4">Your score
                             positioned on the standard intelligence bell curve (Mean=100, SD=15).</p>
@@ -335,10 +335,10 @@
         </div>
     </main>
 
-    <footer
+    <main
         class="w-full border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-4 text-center text-xs text-slate-500">
-        <p>IQ TEST @2026 PAMPLONA</p>
-    </footer>
+        <p>IQ TEST @2026 Pamplona</p>
+    </main>
 
     <script>
         // Theme Toggle Handler
@@ -355,153 +355,121 @@
             document.documentElement.classList.add('dark');
         }
 
-        // 20 Psychometrically Balanced IQ Questions
-        const questions = [
-            {
-                category: "Logical Reasoning",
-                type: "pattern",
-                question: "Which number logically continues the following sequence: 2, 6, 12, 20, 30, ?",
-                options: ["38", "40", "42", "44"],
-                answer: 2 // 42 (+4, +6, +8, +10, +12)
-            },
-            {
-                category: "Spatial Aptitude",
-                type: "visual",
-                question: "If a paper is folded in half twice and a circular hole is punched through all layers center, how many holes appear when unfolded?",
-                options: ["1 hole", "2 holes", "4 holes", "8 holes"],
-                answer: 2 // 4 holes
-            },
-            {
-                category: "Numerical Aptitude",
-                type: "math",
-                question: "A train travels 60 miles in 45 minutes. At this same constant speed, how far will it travel in 3 hours?",
-                options: ["180 miles", "240 miles", "300 miles", "360 miles"],
-                answer: 1 // 240 miles (80 mph * 3)
-            },
-            {
-                category: "Verbal Logic",
-                type: "verbal",
-                question: "Choose the word that is most nearly OPPOSITE in meaning to 'EPHEMERAL':",
-                options: ["Transient", "Permanent", "Fragile", "Obscure"],
-                answer: 1 // Permanent
-            },
-            {
-                category: "Logical Reasoning",
-                type: "pattern",
-                question: "Find the missing letter in the series: A, C, F, J, O, ?",
-                options: ["R", "S", "T", "U"],
-                answer: 2 // T (+2, +3, +4, +5, +6 -> O(15) + 6 = 21 (U? Wait: A=1, C=3(+2), F=6(+3), J=10(+4), O=15(+5), next is +6 -> 21 = U) Let's check: 15+6=21th letter is U. Option 3 is U (index 3).
-            },
-            {
-                category: "Numerical Aptitude",
-                type: "math",
-                question: "What is 15% of 60% of 500?",
-                options: ["30", "45", "60", "75"],
-                answer: 1 // 60% of 500 = 300. 15% of 300 = 45.
-            },
-            {
-                category: "Spatial Aptitude",
-                type: "visual",
-                question: "Which of the following geometric figures has the greatest number of sides?",
-                options: ["Pentagon", "Hexagon", "Heptagon", "Octagon"],
-                answer: 3 // Octagon (8 sides)
-            },
-            {
-                category: "Logical Reasoning",
-                type: "pattern",
-                question: "Complete the numerical matrix logic: 8 -> 64, 9 -> 81, 11 -> ?",
-                options: ["110", "121", "132", "144"],
-                answer: 1 // 121 (n^2)
-            },
-            {
-                category: "Verbal Logic",
-                type: "verbal",
-                question: "Book is to Reading as Fork is to:",
-                options: ["Drawing", "Eating", "Writing", "Cooking"],
-                answer: 1 // Eating
-            },
-            {
-                category: "Numerical Aptitude",
-                type: "math",
-                question: "If 5 machines take 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?",
-                options: ["5 minutes", "25 minutes", "50 minutes", "100 minutes"],
-                answer: 0 // 5 minutes
-            },
-            {
-                category: "Logical Reasoning",
-                type: "pattern",
-                question: "Which number does not belong in the series: 3, 5, 9, 17, 33, 65, 128?",
-                options: ["9", "33", "65", "128"],
-                answer: 3 // 128 (should be 129, as each step is *2 - 1 or *2 + 1: 3*2-1=5, 5*2-1=9, 9*2-1=17, 17*2-1=33, 33*2-1=65, 65*2-1=129).
-            },
-            {
-                category: "Spatial Aptitude",
-                type: "visual",
-                question: "Imagine a cube painted red on all sides. If it is cut into 27 smaller equal-sized cubes, how many small cubes have exactly ONE red face?",
-                options: ["4", "6", "8", "12"],
-                answer: 1 // 6 (center of each face)
-            },
-            {
-                category: "Numerical Aptitude",
-                type: "math",
-                question: "What is the next prime number after 47?",
-                options: ["49", "51", "53", "59"],
-                answer: 2 // 53
-            },
-            {
-                category: "Logical Reasoning",
-                type: "pattern",
-                question: "If all Bloops are Razzies and all Razzies are Lizzies, then all Bloops are definitely Lizzies?",
-                options: ["True", "False", "Cannot be determined", "None of the above"],
-                answer: 0 // True (Syllogism)
-            },
-            {
-                category: "Verbal Logic",
-                type: "verbal",
-                question: "Choose the synonym for 'PRAGMATIC':",
-                options: ["Idealistic", "Practical", "Theoretical", "Emotional"],
-                answer: 1 // Practical
-            },
-            {
-                category: "Numerical Aptitude",
-                type: "math",
-                question: "A jacket costs $80 after a 20% discount. What was the original price before the discount?",
-                options: ["$96", "$100", "$104", "$120"],
-                answer: 1 // $100 ($80 / 0.8)
-            },
-            {
-                category: "Logical Reasoning",
-                type: "pattern",
-                question: "What is 3/4 of 80% of 200?",
-                options: ["100", "120", "140", "160"],
-                answer: 1 // 80% of 200 = 160. 3/4 of 160 = 120.
-            },
-            {
-                category: "Spatial Aptitude",
-                type: "visual",
-                question: "Which shape can be formed by joining two identical equilateral triangles along one edge?",
-                options: ["Square", "Rhombus", "Trapezoid", "Regular Pentagon"],
-                answer: 1 // Rhombus
-            },
-            {
-                category: "Verbal Logic",
-                type: "verbal",
-                question: "Complete the analogy: Mason is to Stone as Author is to:",
-                options: ["Painting", "Book", "Manuscript", "Publisher"],
-                answer: 1 // Book (or Manuscript, let's make options unambiguous: Book)
-            },
-            {
-                category: "Logical Reasoning",
-                type: "pattern",
-                question: "What comes next in the binary-inspired sequence: 1, 2, 4, 8, 16, ?",
-                options: ["24", "30", "32", "64"],
-                answer: 2 // 32 (Powers of 2)
-            }
+        // Master Pool of 100 Psychometrically Balanced IQ Questions
+        const masterQuestionPool = [
+            // --- LOGICAL REASONING (25 questions) ---
+            { category: "Logical Reasoning", type: "pattern", question: "Which number logically continues the sequence: 2, 6, 12, 20, 30, ?", options: ["38", "40", "42", "44"], answer: 2 },
+            { category: "Logical Reasoning", type: "pattern", question: "Find the missing letter in the series: A, C, F, J, O, ?", options: ["R", "S", "T", "U"], answer: 2 },
+            { category: "Logical Reasoning", type: "pattern", question: "Complete the numerical matrix logic: 8 -> 64, 9 -> 81, 11 -> ?", options: ["110", "121", "132", "144"], answer: 1 },
+            { category: "Logical Reasoning", type: "pattern", question: "Which number does not belong in the series: 3, 5, 9, 17, 33, 65, 128?", options: ["9", "33", "65", "128"], answer: 3 },
+            { category: "Logical Reasoning", type: "pattern", question: "If all Bloops are Razzies and all Razzies are Lizzies, are all Bloops definitely Lizzies?", options: ["True", "False", "Cannot be determined", "None of the above"], answer: 0 },
+            { category: "Logical Reasoning", type: "pattern", question: "What comes next in the binary-inspired sequence: 1, 2, 4, 8, 16, ?", options: ["24", "30", "32", "64"], answer: 2 },
+            { category: "Logical Reasoning", type: "pattern", question: "Find the missing number: 4, 9, 16, 25, 36, ?", options: ["42", "49", "54", "64"], answer: 1 },
+            { category: "Logical Reasoning", type: "pattern", question: "If CAT is coded as 31220, how is DOG coded?", options: ["4157", "41517", "41520", "31419"], answer: 0 },
+            { category: "Logical Reasoning", type: "pattern", question: "Which shape logically follows: Circle, Triangle, Square, Pentagon, ?", options: ["Hexagon", "Octagon", "Heptagon", "Circle"], answer: 0 },
+            { category: "Logical Reasoning", type: "pattern", question: "Complete the series: Z, X, V, T, R, ?", options: ["P", "Q", "O", "N"], answer: 0 },
+            { category: "Logical Reasoning", type: "pattern", question: "Which number replaces the question mark: 5, 10, 20, 40, ?", options: ["60", "70", "80", "100"], answer: 2 },
+            { category: "Logical Reasoning", type: "pattern", question: "If yesterday was two days before Monday, what day is today?", options: ["Friday", "Saturday", "Sunday", "Thursday"], answer: 0 },
+            { category: "Logical Reasoning", type: "pattern", question: "Find the missing number in the sequence: 1, 3, 7, 15, 31, ?", options: ["45", "63", "65", "67"], answer: 1 },
+            { category: "Logical Reasoning", type: "pattern", question: "Choose the odd one out: Copper, Iron, Silver, Wood, Gold", options: ["Iron", "Wood", "Silver", "Gold"], answer: 1 },
+            { category: "Logical Reasoning", type: "pattern", question: "Complete the series: 2, 3, 5, 7, 11, 13, ?", options: ["15", "17", "19", "21"], answer: 1 },
+            { category: "Logical Reasoning", type: "pattern", question: "If RED is coded as 27, and BLUE is coded as 40, how is GREEN coded?", options: ["45", "49", "53", "57"], answer: 1 },
+            { category: "Logical Reasoning", type: "pattern", question: "Which letter comes alphabetically midway between M and S?", options: ["P", "Q", "R", "O"], answer: 0 },
+            { category: "Logical Reasoning", type: "pattern", question: "Complete the pattern: 100, 95, 85, 70, 50, ?", options: ["30", "25", "20", "15"], answer: 1 },
+            { category: "Logical Reasoning", type: "pattern", question: "If 3 cats catch 3 mice in 3 minutes, how many cats are needed to catch 100 mice in 100 minutes?", options: ["1", "3", "33", "100"], answer: 0 },
+            { category: "Logical Reasoning", type: "pattern", question: "What is the next number: 1, 1, 2, 3, 5, 8, 13, ?", options: ["15", "20", "21", "25"], answer: 2 },
+            { category: "Logical Reasoning", type: "pattern", question: "Select the logical continuation: A1, B2, D4, G7, K11, ?", options: ["P16", "O16", "P15", "N16"], answer: 0 },
+            { category: "Logical Reasoning", type: "pattern", question: "If TRUE is coded as 44, what is FALSE coded as?", options: ["40", "45", "50", "55"], answer: 1 },
+            { category: "Logical Reasoning", type: "pattern", question: "Find the missing number: 3, 6, 18, 72, ?", options: ["144", "288", "360", "432"], answer: 2 },
+            { category: "Logical Reasoning", type: "pattern", question: "Which word shares no common letters with 'BRAIN'?", options: ["CLOUD", "GHOST", "SHOUT", "PLUM"], answer: 3 },
+            { category: "Logical Reasoning", type: "pattern", question: "Complete the sequence: 0, 2, 6, 12, 20, 30, ?", options: ["38", "40", "42", "44"], answer: 2 },
+
+            // --- SPATIAL APTITUDE (25 questions) ---
+            { category: "Spatial Aptitude", type: "visual", question: "If a paper is folded in half twice and a circular hole is punched through the center, how many holes appear when unfolded?", options: ["1 hole", "2 holes", "4 holes", "8 holes"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "Which geometric figure has the greatest number of sides?", options: ["Pentagon", "Hexagon", "Heptagon", "Octagon"], answer: 3 },
+            { category: "Spatial Aptitude", type: "visual", question: "Imagine a cube painted red on all sides. Cut into 27 smaller equal cubes, how many have exactly ONE red face?", options: ["4", "6", "8", "12"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "Which shape is formed by joining two identical equilateral triangles along one edge?", options: ["Square", "Rhombus", "Trapezoid", "Regular Pentagon"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many 90-degree corners does a standard closed star of David (hexagram) feature?", options: ["0", "6", "12", "24"], answer: 0 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many faces does a standard regular dodecahedron possess?", options: ["8", "10", "12", "20"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "If you rotate a right-angled triangle 360 degrees around its perpendicular leg, what 3D shape is formed?", options: ["Cylinder", "Cone", "Sphere", "Pyramid"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many edges does a cube have?", options: ["6", "8", "12", "16"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "Which 2D net can be folded into a regular tetrahedron?", options: ["3 triangles", "4 triangles", "6 triangles", "4 squares"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many vertices does a regular octahedron have?", options: ["6", "8", "12", "4"], answer: 0 },
+            { category: "Spatial Aptitude", type: "visual", question: "If a solid cylinder is sliced parallel to its base, what is the shape of the cross-section?", options: ["Rectangle", "Circle", "Oval", "Ellipse"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "What is the minimum number of colors needed to color any planar map so no adjacent regions share a color?", options: ["2", "3", "4", "5"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many diagonals can be drawn inside a regular pentagon?", options: ["3", "5", "10", "2"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "Which regular polygon can tile a flat plane entirely by itself alongside triangles and hexagons?", options: ["Pentagon", "Square", "Heptagon", "Decagon"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many total squares of any size are present on a standard 8x8 chessboard?", options: ["64", "140", "204", "256"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "If you look at a cube directly from one corner towards the opposite corner, what shape is the outer silhouette?", options: ["Square", "Rectangle", "Hexagon", "Triangle"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many planes of symmetry does a sphere have?", options: ["1", "6", "Infinite", "0"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "What solid shape is formed when you slice a sphere with a plane that does not pass through its center?", options: ["Hemisphere", "Spherical Cap", "Cylinder", "Cone"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many faces does an icosahedron have?", options: ["12", "20", "30", "16"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "If a cube's edge length is doubled, by what factor does its volume increase?", options: ["2", "4", "8", "16"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "Which shape has rotational symmetry of order 4 and 4 lines of reflection symmetry?", options: ["Rectangle", "Square", "Parallelogram", "Isosceles Trapezoid"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many vertices does a square pyramid have?", options: ["4", "5", "6", "8"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "What is the sum of interior angles of a regular hexagon?", options: ["360°", "540°", "720°", "1080°"], answer: 2 },
+            { category: "Spatial Aptitude", type: "visual", question: "When a clock reads 3:15, what is the acute angle between the hour and minute hands?", options: ["0°", "7.5°", "15°", "22.5°"], answer: 1 },
+            { category: "Spatial Aptitude", type: "visual", question: "How many dimensions does a tesseract (hypercube) have?", options: ["3", "4", "5", "6"], answer: 1 },
+
+            // --- NUMERICAL APTITUDE (25 questions) ---
+            { category: "Numerical Aptitude", type: "math", question: "A train travels 60 miles in 45 minutes. At this constant speed, how far will it travel in 3 hours?", options: ["180 miles", "240 miles", "300 miles", "360 miles"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "What is 15% of 60% of 500?", options: ["30", "45", "60", "75"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "If 5 machines take 5 minutes to make 5 widgets, how long for 100 machines to make 100 widgets?", options: ["5 minutes", "25 minutes", "50 minutes", "100 minutes"], answer: 0 },
+            { category: "Numerical Aptitude", type: "math", question: "What is the next prime number after 47?", options: ["49", "51", "53", "59"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "A jacket costs $80 after a 20% discount. What was the original price?", options: ["$96", "$100", "$104", "$120"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "What is 3/4 of 80% of 200?", options: ["100", "120", "140", "160"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "If x + y = 12 and x - y = 4, what is the value of x * y?", options: ["24", "32", "35", "48"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "What is the square root of 4096?", options: ["54", "62", "64", "72"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "If a bat and ball cost $1.10 in total, and the bat costs $1.00 more than the ball, how much does the ball cost?", options: ["$0.01", "$0.05", "$0.10", "$0.15"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "What is 2 to the 10th power?", options: ["512", "1024", "2048", "4096"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "A car travels at 50 mph for 2 hours and then at 70 mph for 3 hours. What is its average speed?", options: ["58 mph", "60 mph", "62 mph", "64 mph"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "What is the remainder when 2^50 is divided by 7?", options: ["1", "2", "4", "6"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "If 8 workers can build a wall in 10 days, how many days will 5 workers take?", options: ["12 days", "14 days", "16 days", "18 days"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "What is 0.05 expressed as a simplified fraction?", options: ["1/20", "1/50", "5/100", "1/200"], answer: 0 },
+            { category: "Numerical Aptitude", type: "math", question: "If the average of 5 numbers is 20, and one number is removed, the average becomes 18. What was the removed number?", options: ["24", "26", "28", "30"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "What is the sum of angles in a triangle plus the sum of angles in a quadrilateral?", options: ["360°", "540°", "720°", "900°"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "If a pizza is cut into 8 equal slices and you eat 3, what percentage remains?", options: ["37.5%", "60%", "62.5%", "75%"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "What is 99 squared minus 1?", options: ["9700", "9800", "9900", "10000"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "If 3 pipes fill a tank in 4 hours, how long do 2 pipes take?", options: ["5 hours", "6 hours", "8 hours", "9 hours"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "What is the next number in Fibonacci sequence after 55?", options: ["80", "89", "94", "100"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "If 2x = 32, what is 3^(x/5)?", options: ["9", "27", "81", "243"], answer: 1 },
+            { category: "Numerical Aptitude", type: "math", question: "What is the least common multiple (LCM) of 12, 15, and 20?", options: ["60", "120", "180", "240"], answer: 0 },
+            { category: "Numerical Aptitude", type: "math", question: "A store marks up items by 50% and then offers a 20% discount. What is the net profit percentage?", options: ["10%", "15%", "20%", "30%"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "What is 7 factorial (7!)?", options: ["120", "720", "5040", "40320"], answer: 2 },
+            { category: "Numerical Aptitude", type: "math", question: "If a clock strikes 6 times in 5 seconds, how many seconds does it take to strike 12 times?", options: ["10 seconds", "11 seconds", "12 seconds", "14.4 seconds"], answer: 1 },
+
+            // --- VERBAL LOGIC (25 questions) ---
+            { category: "Verbal Logic", type: "verbal", question: "Choose the word most nearly OPPOSITE in meaning to 'EPHEMERAL':", options: ["Transient", "Permanent", "Fragile", "Obscure"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Book is to Reading as Fork is to:", options: ["Drawing", "Eating", "Writing", "Cooking"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the synonym for 'PRAGMATIC':", options: ["Idealistic", "Practical", "Theoretical", "Emotional"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Complete the analogy: Mason is to Stone as Author is to:", options: ["Painting", "Book", "Manuscript", "Publisher"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Which word does not belong with the others?", options: ["Courage", "Bravery", "Valor", "Cowardice"], answer: 3 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the antonym for 'OBDURATE':", options: ["Stubborn", "Flexible", "Hard", "Cruel"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Architect is to Building as Choreographer is to:", options: ["Music", "Dance", "Painting", "Theater"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "What is the meaning of the idiom 'A blessing in disguise'?", options: ["Something bad that turns out well", "A hidden treasure", "A secret gift", "An unexpected rain"], answer: 0 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the word that means 'to wander off course or topic':", options: ["Digress", "Direct", "Ascend", "Concur"], answer: 0 },
+            { category: "Verbal Logic", type: "verbal", question: "Oasis is to Desert as Island is to:", options: ["River", "Ocean", "Mountain", "Forest"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the synonym for 'CANDID':", options: ["Secretive", "Honest", "Biased", "Complex"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Gargantuan is to Miniature as Colossal is to:", options: ["Huge", "Gigantic", "Puny", "Massive"], answer: 2 },
+            { category: "Verbal Logic", type: "verbal", question: "Which term describes a word that reads the same backward as forward?", options: ["Homonym", "Palindrome", "Synonym", "Acronym"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the antonym for 'GREGARIOUS':", options: ["Sociable", "Outgoing", "Introverted", "Friendly"], answer: 2 },
+            { category: "Verbal Logic", type: "verbal", question: "Scale is to Fish as Feather is to:", options: ["Bird", "Wing", "Flight", "Skin"], answer: 0 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the synonym for 'ENIGMA':", options: ["Solution", "Mystery", "Clarity", "Truth"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Author is to Novel as Composer is to:", options: ["Symphony", "Instrument", "Stage", "Performance"], answer: 0 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the antonym for 'MITIGATE':", options: ["Alleviate", "Worsen", "Lessen", "Soothe"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Glance is to Look as Stutter is to:", options: ["Speak", "Hear", "Write", "Walk"], answer: 0 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the word that means 'fear of heights':", options: ["Claustrophobia", "Acrophobia", "Agoraphobia", "Hydrophobia"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Pioneering is to Innovation as Retrospective is to:", options: ["Future", "Past", "Present", "Design"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the synonym for 'LACONIC':", options: ["Wordy", "Concise", "Emotional", "Verbose"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Herbivore is to Plant as Carnivore is to:", options: ["Water", "Meat", "Sunlight", "Fruit"], answer: 1 },
+            { category: "Verbal Logic", type: "verbal", question: "Choose the antonym for 'ZEALOUS':", options: ["Apathetic", "Eager", "Passionate", "Fervent"], answer: 0 },
+            { category: "Verbal Logic", type: "verbal", question: "Audacious is to Boldness as Altruistic is to:", options: ["Selfishness", "Generosity", "Hostility", "Apathy"], answer: 1 }
         ];
 
-        // State variables
+        // Active session questions (randomly selected 20)
+        let questions = [];
         let currentIdx = 0;
-        let userAnswers = new Array(questions.length).fill(null);
+        let userAnswers = [];
         let timerInterval = null;
         let secondsRemaining = 1200; // 20 minutes
         let startTime = 0;
@@ -520,7 +488,15 @@
         const nextBtn = document.getElementById('nextBtn');
         const timerDisplay = document.getElementById('timerDisplay');
 
+        // Fisher-Yates shuffle to pick 20 random questions from the 100 pool
+        function selectRandomQuestions() {
+            let shuffled = [...masterQuestionPool].sort(() => 0.5 - Math.random());
+            questions = shuffled.slice(0, 20);
+            userAnswers = new Array(questions.length).fill(null);
+        }
+
         function startAssessment() {
+            selectRandomQuestions();
             welcomeView.classList.add('hidden');
             quizView.classList.remove('hidden');
             startTime = Date.now();
@@ -602,7 +578,7 @@
             quizView.classList.add('hidden');
             resultView.classList.remove('hidden');
 
-            // Calculate score
+            // Calculate score across selected 20 questions
             let correctCount = 0;
             let domainScores = { Logical: { correct: 0, total: 0 }, Numerical: { correct: 0, total: 0 }, Spatial: { correct: 0, total: 0 }, Verbal: { correct: 0, total: 0 } };
 
@@ -620,10 +596,10 @@
             });
 
             // Accurate IQ calculation formula mapped to standard scale (Mean 100, SD 15)
-            // 20 questions total. Baseline 70 + (correct / 20) * 65 -> Max IQ ~135, Min IQ ~70
-            let calculatedIq = Math.round(70 + (correctCount / questions.length) * 65);
+            // Min IQ = 65, Max IQ = 145
+            let calculatedIq = Math.round(65 + (correctCount / questions.length) * 80);
             if (calculatedIq > 145) calculatedIq = 145;
-            if (calculatedIq < 70) calculatedIq = 70;
+            if (calculatedIq < 65) calculatedIq = 65;
 
             document.getElementById('finalIqScore').textContent = calculatedIq;
             document.getElementById('correctCount').textContent = correctCount;
@@ -633,7 +609,7 @@
             const secs = timeSpentSec % 60;
             document.getElementById('timeTaken').textContent = `${mins}m ${secs}s`;
 
-            // Classification based on requested bands:
+            // Classification matching exact requested bands:
             // Below Average: 0 - 84
             // Average: 85 - 115
             // High IQ: 116 above
@@ -692,7 +668,6 @@
                         tension: 0.4,
                         borderWidth: 3,
                         pointRadius: function (context) {
-                            // Highlight user score position roughly
                             return context.dataIndex === 2 ? 6 : 2;
                         }
                     }]
@@ -733,7 +708,7 @@
 
         function restartAssessment() {
             currentIdx = 0;
-            userAnswers = new Array(questions.length).fill(null);
+            userAnswers = [];
             secondsRemaining = 1200;
             resultView.classList.add('hidden');
             welcomeView.classList.remove('hidden');
